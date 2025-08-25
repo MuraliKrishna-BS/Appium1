@@ -1,0 +1,7 @@
+	 <groupId>org.seleniumhq.selenium</groupId> <artifactId>selenium-support</artifactId>
+    
+     <groupId>io.appium</groupId> <artifactId>java-client</artifactId>
+    
+     <groupId>org.seleniumhq.selenium</groupId><artifactId>selenium-java</artifactId>
+    
+    
