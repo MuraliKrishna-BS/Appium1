@@ -22,7 +22,7 @@ public class p4 {
 
 		String path,Dname,Server;
 		Properties pr = new Properties();
-		FileReader fr = new FileReader("C:\\Users\\murali.krishna\\eclipse-workspace\\Practice\\AppiumP1\\src\\test\\resources\\myconstants.properties");
+		FileReader fr = new FileReader(".\\src\\test\\resources\\myconstants.properties");
 		pr.load(fr);
 		
 		path = pr.getProperty("Path");
@@ -36,12 +36,12 @@ public class p4 {
 		
 		AndroidDriver Driver = new AndroidDriver(new URI(Server).toURL(),op);
 		
-		Driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		Driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		Driver.findElement(AppiumBy.accessibilityId("App")).click();
 		Driver.findElement(AppiumBy.accessibilityId("Action Bar")).click();
 		Driver.findElement(AppiumBy.accessibilityId("Action Bar Usage")).click();
 		
-		//Driver.findElement(AppiumBy.accessibilityId("More options")).click();
+		Driver.findElement(AppiumBy.accessibilityId("More options")).click();
 			
 			try {
 				WebElement listscreen = Driver.findElement(AppiumBy.className("android.widget.ListView"));
