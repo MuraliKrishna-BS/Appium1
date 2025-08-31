@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-08-29T21:08:22 IST" name="Default suite" finished-at="2025-08-29T21:08:36 IST" duration-ms="14285">
+  <suite started-at="2025-08-31T18:56:28 IST" name="Default suite" finished-at="2025-08-31T18:56:41 IST" duration-ms="13332">
     <groups>
     </groups>
-    <test started-at="2025-08-29T21:08:22 IST" name="Default test" finished-at="2025-08-29T21:08:36 IST" duration-ms="14285">
+    <test started-at="2025-08-31T18:56:28 IST" name="Default test" finished-at="2025-08-31T18:56:41 IST" duration-ms="13332">
       <class name="Post1.P6">
-        <test-method signature="MP6()[pri:0, instance:Post1.P6@56620197]" started-at="2025-08-29T21:08:22 IST" name="MP6" finished-at="2025-08-29T21:08:36 IST" duration-ms="14232" status="PASS">
+        <test-method signature="MP6()[pri:0, instance:Post1.P6@2a4fb17b]" started-at="2025-08-31T18:56:28 IST" name="MP6" finished-at="2025-08-31T18:56:41 IST" duration-ms="13294" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MP6 -->
