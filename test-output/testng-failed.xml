@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-
-      <class name="Post1.BaseP9">
+      <class name="Post1.P9">
         <methods>
+          <include name="ADriver"/>
           <include name="Base_P9"/>
         </methods>
-      </class> <!-- Post1.BaseP9 -->
-
+      </class> <!-- Post1.P9 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
