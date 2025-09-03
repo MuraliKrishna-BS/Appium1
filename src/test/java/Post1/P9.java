@@ -11,6 +11,7 @@ import java.util.Properties;
 import javax.swing.JList;
 
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -72,19 +73,36 @@ public class P9 extends Base1 {
 				List<WebElement> elements = Driver.findElements(AppiumBy.xpath("//android.widget.TextView[@resource-id=\"android:id/text1\"]"));
 				
 				System.out.println("Total number of Elements: "+elements.size());
-				
-				Driver.findElement(AppiumBy.xpath("//android.widget.TextView[@resource-id=\"android:id/text1\"][1]")).click();
-				
-				WebElement cfm=Driver.findElement(AppiumBy.id("android:id/message"));
-				System.out.println("Confirmation Message on selection"+cfm.getText());
-				
-				String[] cmsg = cfm.getText().split(",");
-				for(String ms:cmsg) {
+				int i ;
+				for ( i = 1; i < elements.size(); i++) {
 					
-					System.out.println(ms.trim());
+					if(i!=1) {
+						Driver.findElement(AppiumBy.accessibilityId("List dialog")).click();
+					}
 					
+					
+						
+					
+					WebElement Element = Driver.findElement(
+							AppiumBy.xpath("//android.widget.TextView[@resource-id=\"android:id/text1\"]["+i+"]"));
+					System.out.println("Expected Text: " + Element.getText());
+					String Expected = Element.getText();
+					Element.click();
+					WebElement cfm = Driver.findElement(AppiumBy.id("android:id/message"));
+					System.out.println("Confirmation Message on selection" + cfm.getText());
+					String[] cmsg = cfm.getText().split(",");
+					System.out.println("Actual Text: " + cmsg[1]);
+					Assert.assertEquals(cmsg[1].trim(), Expected.trim(),
+							"Actual: " + cmsg[1] + "Expected: " + Expected);
+					for (String ms : cmsg) {
+
+						System.out.println(ms.trim());
+
+					} 
+					
+					Driver.navigate().back();
+				
 				}
-				
 				
 				
 	
