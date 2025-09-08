@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Post1.P10">
+      <class name="Practice1.P8_SwitchingBetweenApps">
         <methods>
-          <include name="BP10"/>
-          <include name="FP10"/>
+          <include name="P8FSwithcBetweenApps"/>
+          <include name="P8SwitchApps"/>
         </methods>
-      </class> <!-- Post1.P10 -->
+      </class> <!-- Practice1.P8_SwitchingBetweenApps -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
