@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-07T21:32:38 IST" name="Default suite" finished-at="2025-09-07T21:32:47 IST" duration-ms="8848">
+  <suite started-at="2025-09-09T21:47:16 IST" name="Default suite" finished-at="2025-09-09T21:47:40 IST" duration-ms="23569">
     <groups>
     </groups>
-    <test started-at="2025-09-07T21:32:38 IST" name="Default test" finished-at="2025-09-07T21:32:47 IST" duration-ms="8848">
-      <class name="Practice1.P8_SwitchingBetweenApps">
-        <test-method is-config="true" signature="P8SwitchApps()[pri:0, instance:Practice1.P8_SwitchingBetweenApps@292b08d6]" started-at="2025-09-07T21:32:38 IST" name="P8SwitchApps" finished-at="2025-09-07T21:32:45 IST" duration-ms="7172" status="PASS">
+    <test started-at="2025-09-09T21:47:16 IST" name="Default test" finished-at="2025-09-09T21:47:40 IST" duration-ms="23569">
+      <class name="Practice1.P10_CallsDemo">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Practice1.P10_CallsDemo@36ebc363]" started-at="2025-09-09T21:47:16 IST" name="setup" finished-at="2025-09-09T21:47:24 IST" duration-ms="8191" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- P8SwitchApps -->
-        <test-method signature="P8FSwithcBetweenApps()[pri:0, instance:Practice1.P8_SwitchingBetweenApps@292b08d6]" started-at="2025-09-07T21:32:45 IST" name="P8FSwithcBetweenApps" finished-at="2025-09-07T21:32:47 IST" duration-ms="1632" status="PASS">
+        </test-method> <!-- setup -->
+        <test-method signature="FP10()[pri:0, instance:Practice1.P10_CallsDemo@36ebc363]" started-at="2025-09-09T21:47:24 IST" name="FP10" finished-at="2025-09-09T21:47:40 IST" duration-ms="15321" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- P8FSwithcBetweenApps -->
-      </class> <!-- Practice1.P8_SwitchingBetweenApps -->
+        </test-method> <!-- FP10 -->
+      </class> <!-- Practice1.P10_CallsDemo -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

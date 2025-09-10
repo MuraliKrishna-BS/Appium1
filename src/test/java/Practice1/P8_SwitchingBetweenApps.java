@@ -1,20 +1,28 @@
 package Practice1;
 
+import org.apache.commons.io.FileUtils;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
 import java.time.Duration;
+import java.util.Base64;
 import java.util.Properties;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.google.common.collect.ImmutableMap;
-
+//import com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidStartScreenRecordingOptions;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.screenrecording.BaseStopScreenRecordingOptions;
 
 class P8BaseClass{
 	
@@ -51,9 +59,14 @@ public void P8SwitchApps() throws IOException, URISyntaxException {
 public class P8_SwitchingBetweenApps extends P8BaseClass {
 	
 	@Test
-	public void P8FSwithcBetweenApps() throws IOException {
+	public void P8FSwithcBetweenApps() throws IOException, InterruptedException {
 		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		
+		Thread.sleep(Duration.ofSeconds(5));
+		
+		driver.startRecordingScreen();
+		
 		
 		driver.findElement(AppiumBy.accessibilityId("App")).click();
 		
@@ -74,10 +87,17 @@ public class P8_SwitchingBetweenApps extends P8BaseClass {
 //		Runtime.getRuntime().exec("adb shell am start -a android.intent.action.CALL -d tel:1234567890");
 
 		driver.activateApp("com.phonepe.app");
-		driver.executeScript("mobile:fingerprint", ImmutableMap.of("fingerprintId",true));
+	//	driver.executeScript("mobile:fingerprint", ImmutableMap.of("fingerprintId",true));
 		
 
+		String Videodata = driver.stopRecordingScreen();
+		Thread.sleep(Duration.ofSeconds(5));
+		
+		byte[] decode = Base64.getDecoder().decode(Videodata);
 
+		FileUtils.writeByteArrayToFile(new File("RecordingClip1.mp4"), decode);
+        
+		
 		
 	}
 	
