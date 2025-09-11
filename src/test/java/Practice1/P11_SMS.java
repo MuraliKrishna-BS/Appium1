@@ -7,28 +7,30 @@ import java.net.URISyntaxException;
 import java.time.Duration;
 import java.util.Properties;
 
+import org.openqa.selenium.ScreenOrientation;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.GsmCallActions;
 import io.appium.java_client.android.options.UiAutomator2Options;
 
-class BaseP10{
+class BaseP11{
 	
 	public AndroidDriver driver;
+	public Properties p;
+	public String Activity, Package, Name, url;
 	
 	@BeforeClass
 	public void setup() throws URISyntaxException, IOException {
 		
-		Properties p = new Properties();
-		FileReader r = new FileReader(".\\src\\test\\resources\\myconstants.properties");
-		p.load(r);
+		p= new Properties();
+		FileReader fr = new FileReader(".\\src\\test\\resources\\myconstants.properties");
+		p.load(fr);
 		
-		String Name = p.getProperty("DeviceName");
-		String url = p.getProperty("Server");
-		
-		
+		Name= p.getProperty("DeviceName");
+		url= p.getProperty("Server");
+		Activity = p.getProperty("Activity");
+		Package = p.getProperty("Package");
 		
 		UiAutomator2Options cap = new UiAutomator2Options();
 		cap.setDeviceName(Name);
@@ -36,26 +38,24 @@ class BaseP10{
 		
 		driver = new AndroidDriver(new URI(url).toURL(),cap);
 		
-		
 	}
-	
 }
 
-public class P10_CallsDemo extends BaseP10 {
+public class P11_SMS extends BaseP11 {
 	
 	@Test
-	
-	public void FP10() throws InterruptedException {
+	public void FP11() {
 		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 		driver.openNotifications();
-		Thread.sleep(Duration.ofSeconds(5));
-		driver.makeGsmCall("1234567890", GsmCallActions.CALL);
-		Thread.sleep(Duration.ofSeconds(10));
-		driver.makeGsmCall("1234567890", GsmCallActions.ACCEPT);
-		Thread.sleep(Duration.ofSeconds(10));
-		driver.makeGsmCall("1234567890", GsmCallActions.CANCEL);
+		driver.sendSMS("2233445566", "Test SMS Sending 33440");
+		System.out.println("Present Orientation: "+driver.getOrientation());
+		
+		driver.activateApp(Package);
+		driver.rotate(ScreenOrientation.LANDSCAPE);
+
+;
 		
 		
 	}

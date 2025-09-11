@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Practice1.P10_CallsDemo">
+      <class name="Practice1.P12_Rotate_ScreenOrientation">
         <methods>
-          <include name="FP10"/>
-          <include name="setup"/>
+          <include name="FP12"/>
+          <include name="SetUp"/>
         </methods>
-      </class> <!-- Practice1.P10_CallsDemo -->
+      </class> <!-- Practice1.P12_Rotate_ScreenOrientation -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
