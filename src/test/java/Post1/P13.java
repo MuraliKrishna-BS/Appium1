@@ -10,8 +10,11 @@ import java.util.Properties;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableMap;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
@@ -76,9 +79,43 @@ public class P13 extends P13Base {
 		KeyEvent ke = new KeyEvent(AndroidKey.ENTER);
 		driver.pressKey(ke); //Working
 		
-		WebElement Item= driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"iPhone 16 Pro 128 GB: 5G Mobile Phone with Camera Control, 4K 120 fps Dolby Vision and a Huge Leap in Battery Life. Works with AirPods; Desert Titanium\"]"));
+		driver.executeScript("mobile: scrollGesture",ImmutableMap.of("left",200,"top",200,"height",200,"width",200,"direction","down", "percent",1.0));
 		
-		Item.click();
+		WebElement RID= driver.findElement(AppiumBy.xpath("//android.view.View[@resource-id=\"search\"]/android.view.View[3]/android.widget.ListView/child::android.view.View"));
+		
+		String RRID= RID.getAttribute("resource-id");
+		System.out.println("Item ID: "+RRID);
+		
+		WebElement Pr1= driver.findElement(AppiumBy.xpath("//android.view.View[@resource-id=\""+RRID+"\"]/android.view.View/android.view.View/android.view.View[3]/\r\n"
+				+ "child::android.view.View/child::android.widget.TextView[1]"));
+		
+
+		
+		System.out.println("Price of 1st Product: "+Pr1.getText());
+		
+		
+	
+		WebElement clickconfirm;
+		boolean R=false;
+		do {
+			driver.executeScript("mobile: scrollGesture",ImmutableMap.of("left",200,"top",200,"height",200,"width",200,"direction","down", "percent",3.0));
+			
+		
+		try {
+			
+			//clickconfirm = driver.findElement(AppiumBy.xpath("//android.widget.Button[@text=\"Increase quantity by one\"]"));
+			
+			driver.findElement(AppiumBy.xpath("//android.widget.Button[@text=\"Add to cart\"]")).click();
+			
+			R=true; break;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Try R value  "+R);
+		}
+		} while(R=true);
+	//	WebElement clickconfirm = driver.findElement(AppiumBy.xpath("//android.widget.Button[@text=\"Increase quantity by one\"]"));
+
+	//	Assert.assertEquals(true, clickconfirm.isDisplayed());
 	}
 
 }
